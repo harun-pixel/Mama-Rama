@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Titip Apa Saja (Maps) - Jasa Antar Rp 5.000</title>
+  <link rel="stylesheet" href="b.css"/>
+</head>
+<body>
+  <div class="container">
+    <!-- Banner status buka/tutup -->
+    <div id="closedBanner" class="closed-banner hidden">
+      Layanan sedang tidak buka saat ini. Silakan coba lagi nanti.
+    </div>
+
+    <header class="header-section">
+      <h1>🗺️ Titip Apa Saja (Maps)</h1>
+      <div class="price-badge">Jasa Antar Rp 5.000 (flat)</div>
+      <p class="subtitle">Hanya jasa antar, tidak ada ambil sendiri. Khusus area sekitar kos.</p>
+    </header>
+
+    <!-- Sumber Lokasi (Google Maps) -->
+    <section class="form-section">
+      <h2>📍 Sumber Lokasi Pembelian</h2>
+      <p class="hint">Tempelkan link lokasi tempat membeli dari Google Maps.</p>
+      <div class="source-actions">
+        <a href="https://www.google.com/maps" target="_blank" class="maps-btn">
+          <span class="btn-icon">🧭</span>
+          <span class="btn-text">Buka Google Maps</span>
+        </a>
+        <div class="help-chip">Share ➜ Copy link ➜ Paste ke kolom</div>
+      </div>
+      <div class="input-group">
+        <label for="mapsLink">Link Google Maps tempat pembelian <span class="required">*</span></label>
+        <input type="url" id="mapsLink" placeholder="https://www.google.com/maps/... atau https://maps.app.goo.gl/..." required/>
+        <small class="helper">Terima link Google Maps biasa atau link pendek maps.app.goo.gl</small>
+      </div>
+    </section>
+
+    <!-- Info Pelanggan -->
+    <section class="form-section">
+      <h2>👤 Info Pelanggan & Lokasi Antar</h2>
+      <fieldset class="customer-type-fieldset">
+        <legend>Pilih tipe pelanggan</legend>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="customerType" value="penghuni" required/>
+            <span class="radio-custom"></span>
+            <span class="radio-text">Penghuni Kos</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="customerType" value="nonPenghuni"/>
+            <span class="radio-custom"></span>
+            <span class="radio-text">Non-Penghuni</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="grid-2">
+        <div class="input-group">
+          <label for="custName">Nama lengkap <span class="required">*</span></label>
+          <input type="text" id="custName" placeholder="Contoh: Budi Santoso" required/>
+        </div>
+        <div class="input-group">
+          <label for="custWa">Nomor WhatsApp <span class="required">*</span></label>
+          <input type="tel" id="custWa" placeholder="Contoh: 081234567890" required/>
+        </div>
+      </div>
+
+      <div class="input-group hidden" id="roomWrap">
+        <label for="roomNo">Nomor kamar <span class="required">*</span></label>
+        <input type="text" id="roomNo" placeholder="Contoh: 204"/>
+      </div>
+
+      <div class="input-group hidden" id="addressWrap">
+        <label for="fullAddress">Alamat lengkap pengantaran <span class="required">*</span></label>
+        <textarea id="fullAddress" rows="3" placeholder="Contoh: Jl. Melati No. 9, RT 02/RW 03, Kel. ABC"></textarea>
+      </div>
+    </section>
+
+    <!-- Kategori + Chips -->
+    <section class="form-section">
+      <h2>🍽️ Kategori & Contoh Cepat</h2>
+      <div class="input-group">
+        <label>Kategori</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="cat" value="food" checked/>
+            <span class="radio-custom"></span>
+            <span class="radio-text">Makanan & Minuman</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="cat" value="goods"/>
+            <span class="radio-custom"></span>
+            <span class="radio-text">Barang/Jasa</span>
+          </label>
+        </div>
+      </div>
+      <div id="chipsWrap" class="chips-wrap"></div>
+    </section>
+
+    <!-- Detail Pesanan -->
+    <section class="form-section">
+      <h2>🛒 Detail Pesanan</h2>
+
+      <div id="itemsContainer">
+        <div class="item-row">
+          <div class="item-header"><span class="item-number">Item #1</span></div>
+          <div class="item-content">
+            <div class="grid-2">
+              <div class="input-group">
+                <label for="itemWhat1">Apa yang dipesan <span class="required">*</span></label>
+                <input type="text" id="itemWhat1" placeholder="Contoh: Nasi Padang lauk ayam + sayur" required/>
+              </div>
+              <div class="input-group">
+                <label for="itemQty1">Jumlah <span class="required">*</span></label>
+                <input type="number" id="itemQty1" value="1" min="1" required/>
+              </div>
+            </div>
+            <div class="grid-2">
+              <div class="input-group">
+                <label for="itemNote1">Keterangan</label>
+                <input type="text" id="itemNote1" placeholder="Contoh: Pedas sedang / tanpa sambal ijo"/>
+              </div>
+              <div class="input-group">
+                <label for="itemSub1">Boleh diganti setara?</label>
+                <select id="itemSub1">
+                  <option value="YA">YA</option>
+                  <option value="TIDAK">TIDAK</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" id="addItemBtn" class="secondary-btn">
+        <span class="btn-icon">➕</span>
+        <span class="btn-text">Tambah Item</span>
+      </button>
+    </section>
+
+    <!-- Info Lain -->
+    <section class="form-section">
+      <h2>📝 Info Tambahan</h2>
+      <ul class="bullet">
+        <li>Hanya jasa antar, tidak ada ambil sendiri.</li>
+        <li>Biaya jasa antar tetap Rp 5.000 untuk sekitar kos.</li>
+        <li>Jika fotokopi/print, kirimkan file ke WhatsApp setelah submit.</li>
+      </ul>
+    </section>
+
+    <!-- Submit -->
+    <section class="form-section">
+      <button id="submitBtn" class="primary-btn">
+        <span class="btn-icon">📱</span>
+        <span class="btn-text">Konfirmasi Pesanan via WhatsApp</span>
+      </button>
+      <div id="notification" class="hidden notify">
+        <div class="notification-icon">✅</div>
+        <p>Sedang menyiapkan pesan WhatsApp...</p>
+        <div class="loading-spinner"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="c.js"></script>
+</body>
+</html>
